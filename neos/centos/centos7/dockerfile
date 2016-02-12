@@ -1,0 +1,21 @@
+FROM scratch
+MAINTAINER Neos By Bold <suporte@neosbybold.com>
+
+ADD c7-docker.tar.xz /
+LABEL name="CentOS 7 Base Image" \
+    vendor="CentOS" \
+    license="GPLv2" \
+    build-date="2016-02-05"
+
+RUN yum update -y --setopt=tsflags=nodocs && yum clean all
+RUN yum install wget -y  --setopt=tsflags=nodocs && yum clean all
+
+# Volumes for systemd
+# VOLUME ["/run", "/tmp"]
+
+# Environment for systemd
+# ENV container=docker
+
+# For systemd usage this changes to /usr/sbin/init
+# Keeping it as /bin/bash for compatability with previous
+CMD ["/bin/bash"]

@@ -1,0 +1,2 @@
+#ln -s /usr/bin/run-postgres /usr/bin/run-postgres-master
+run-postgresql
